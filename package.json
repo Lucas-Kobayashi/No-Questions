@@ -2,10 +2,10 @@
   "name": "no-questions",
   "version": "1.0.0",
   "description": "Projeto desenvolvido para gerenciar perguntas anônimas de usuários direcionadas ao dono da página. Projeto desenvolvido durante a NLW da Rocketseat na missão discover.",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "start": "nodemon ."
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "dependencies": {
     "ejs": "^3.1.7",
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
