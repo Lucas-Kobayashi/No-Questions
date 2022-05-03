@@ -22,10 +22,22 @@ deleteButtons.forEach(button => {
   button.addEventListener("click", event => handleCLick(event, false));
 });
 
-// Realiza verificação se o foi clicado em check e altera as configurações da modal.
+// A função "event" além de trazer o elemento desejado tras consigo todos os atributos do elemento selecionado, como classe, id...
+// Realiza verificação se o foi clicado em algum botão relacionado a modal.
 function handleCLick(event, check = true) {
   event.preventDefault();
   const text = check ? "Marcar como lida" : "Excluir";
+  const slug = check ? "check" : "delete";
+
+  // Busca os ID's de cada sala.
+  const roomId = document.querySelector("#room-id").dataset.id;
+
+  // Busca o ID de cada pergunta.
+  const questionId = event.target.dataset.id;
+
+  // Envia os dados de ID da sala e pergunta, também capta qual botão foi clicado na pergunta.
+  const form = document.querySelector(".modal form");
+  form.setAttribute("action", `/sala/${roomId}/${questionId}/${slug}`);
 
   modalTitle.innerHTML = `${text} esta pergunta`;
   modalDescription.innerHTML = `Tem certeza que deseja ${text.toLowerCase()} esta pergunta? `;

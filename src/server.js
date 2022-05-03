@@ -15,6 +15,9 @@ server.use(express.static("public"));
 // Redirecionando o local padrão do views
 server.set("views", path.join(__dirname, "views"));
 
+// Middleware para receber os dados do form e decodificalo.
+server.use(express.urlencoded({ extended: true }));
+
 // Tornando o arquivo route utilizavel para o node
 server.use(route);
 
