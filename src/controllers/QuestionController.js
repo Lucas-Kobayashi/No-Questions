@@ -1,3 +1,4 @@
+// Módulo de controle para fazer o post de que botão foi clicado na sala.
 module.exports = {
   index(req, res) {
     const roomId = req.params.room;

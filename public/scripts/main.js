@@ -37,7 +37,7 @@ function handleCLick(event, check = true) {
 
   // Envia os dados de ID da sala e pergunta, também capta qual botão foi clicado na pergunta.
   const form = document.querySelector(".modal form");
-  form.setAttribute("action", `/sala/${roomId}/${questionId}/${slug}`);
+  form.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`);
 
   modalTitle.innerHTML = `${text} esta pergunta`;
   modalDescription.innerHTML = `Tem certeza que deseja ${text.toLowerCase()} esta pergunta? `;
