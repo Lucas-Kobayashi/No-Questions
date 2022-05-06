@@ -17,9 +17,10 @@ module.exports = {
       } else if (action == "check") {
         await db.run(`UPDATE questions SET read = 1 WHERE id = ${questionId}`);
       }
+      res.redirect(`/sala/${roomId}`);
+    } else {
+      res.render("passincorrect", { roomId: roomId });
     }
-
-    res.redirect(`/sala/${roomId}`);
   },
 
   async create(req, res) {
