@@ -2,15 +2,24 @@ const Database = require("../db/config");
 
 // Módulo de controle para fazer o post de que botão foi clicado na sala.
 module.exports = {
-  index(req, res) {
+  async index(req, res) {
+    const db = await Database();
     const roomId = req.params.room;
     const questionId = req.params.question;
     const action = req.params.action;
     const password = req.body.password;
 
-    console.log(
-      `room = ${roomId}, question = ${questionId}, action = ${action}, password = ${password}`
-    );
+    // Verifica se a senha da sala está correta
+    const verifyRoom = await db.get(`SELECT * FROM rooms WHERE id = ${roomId}`);
+    if (verifyRoom.pass == password) {
+      if (action == "delete") {
+        await db.run(`DELETE FROM questions WHERE id = ${questionId}`);
+      } else if (action == "check") {
+        await db.run(`UPDATE questions SET read = 1 WHERE id = ${questionId}`);
+      }
+    }
+
+    res.redirect(`/sala/${roomId}`);
   },
 
   async create(req, res) {
