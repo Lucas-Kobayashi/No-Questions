@@ -15,6 +15,7 @@ route.get("/criar-sala", (req, res) =>
 
 route.post("/create-room", RoomController.create);
 route.get("/sala/:room", RoomController.open);
+route.post("/enterroom", RoomController.enter);
 
 // Formato que o formulário de dentro da modal tem que passar a informação.
 route.post("/question/:room/:question/:action", QuestionController.index);
