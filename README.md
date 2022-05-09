@@ -14,3 +14,11 @@ O projeto foi desenvolvido no bootcamp da rocketseat.
 - EJS
 - Express
 - SQLite
+
+## Como rodar
+
+Pra rodar a aplicação baixe o repositório, abra o terminal e digite os comandos:
+
+1. Digite `npm install` para instalar as dependências.
+2. Depois use o comando `npm run init-db` para criar o banco de dados.
+3. E para iniciar a aplicação utilize `npm start`.
